@@ -1,4 +1,4 @@
-#Pipeline with GIT integration
+//Pipeline with GIT integration
 
 pipeline {
     agent any
