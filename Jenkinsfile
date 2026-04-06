@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t docker-jenkins-app2:${BUILD_NUMBER} .'
+                sh 'docker build -t docker-jenkins-app2:${Build_Number} .'
             }
         }
       // stage ('Build Info') {
