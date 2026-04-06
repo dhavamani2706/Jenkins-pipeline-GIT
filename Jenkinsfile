@@ -6,6 +6,9 @@ pipeline {
       options {
     timeout(time: 30, unit: 'MINUTES')
 }
+    environment {
+       Port_no = "8081"
+    }
 
     stages {
 
@@ -29,7 +32,7 @@ pipeline {
 
      stage('Run Container') {
            steps {
-        sh 'docker run -d -p 8082:80 --name nice_khorana docker-jenkins-app2'
+        sh 'docker run -d -p ${Port_no}:80 --name nice_khorana docker-jenkins-app2'
            }
       }
 
