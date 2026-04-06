@@ -21,11 +21,18 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
-            steps {
-                sh 'docker run -d -p 8081:80 docker-jenkins-app2'
-            }
-        }
+       stage('Stop Old Container') {
+           steps {
+        sh 'docker rm -f nice_khorana || true'
+           }
+       }
+
+     stage('Run Container') {
+           steps {
+        sh 'docker run -d -p 8082:80 --name nice_khorana docker-jenkins-app2'
+           }
+      }
+
     }
 
     post {
