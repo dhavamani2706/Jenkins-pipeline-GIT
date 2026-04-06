@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 8081:80 docker-jenkins-app2'
+                sh 'docker run -d -p 8082:80 docker-jenkins-app2'
             }
         }
     }
