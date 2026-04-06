@@ -20,14 +20,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t docker-jenkins-app2 .'
+                sh 'docker build -t docker-jenkins-app2:${BUILD_NUMBER} .'
             }
         }
-       stage ('Build Info') {
-           steps {
-             echo "Build Number: ${Build_Number}"
-             }
-        }
+      // stage ('Build Info') {
+         //  steps {
+        //     echo "Build Number: ${Build_Number}"
+       //      }
+      //  }
 
        stage('Stop Old Container') {
            steps {
