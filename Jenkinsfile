@@ -44,6 +44,11 @@ pipeline {
         sh 'docker run -d -p ${Port_no}:80 --name nice_khorana docker-jenkins-app2'
            }
       }
+    Stage ('Docker Version Info') {
+       steps {
+          sh 'docker --version'
+        }
+    }
 
     }
 
