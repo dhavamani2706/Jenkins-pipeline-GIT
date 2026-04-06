@@ -17,17 +17,21 @@ pipeline {
                 echo "Code already cloned from Git"
             }
         }
-
-        stage('Build Docker Image') {
+        stage ('Remove unused container') {
             steps {
-                sh 'docker build -t docker-jenkins-app2:${Build_Number} .'
+              sh 'docker container prune -f'
             }
         }
-      // stage ('Build Info') {
-         //  steps {
-        //     echo "Build Number: ${Build_Number}"
-       //      }
-      //  }
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t docker-jenkins-app2 .'
+            }
+        }
+        stage ('Build Info') {
+           steps {
+             echo "Build Number: ${Build_Number}"
+             }
+        }
 
        stage('Stop Old Container') {
            steps {
